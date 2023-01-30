@@ -96,6 +96,15 @@ entradaDados.question('Digite nome do aluno\n', function(nome) {
                      *------------------------------------------------------------------------------------------------------
                      */
 
+                    /* ordem de exibição  e execução dod operadores lógicos 
+                     *0ª
+                     * 1° negação
+                     *2°  E
+                     *3° OU
+                     * para mudar a ordem use os parenteses ()
+                     */
+
+
                     //-------------------Fazendo estrutura condicional para validar se caixa é vazia----------------------
                     if (primeiraNota == '' || segundaNota == '' || terceiraNota == '' || quartaNota == '') {
                         console.log(nome, 'ERRO: é nescessario digitar algum valor na entrada');
@@ -104,19 +113,26 @@ entradaDados.question('Digite nome do aluno\n', function(nome) {
 
                         /*--------------------------- agora precisamos que todos sejam um numero -----------------------------------*/
                     } else if (isNaN(primeiraNota) || isNaN(segundaNota) || isNaN(terceiraNota) || isNaN(quartaNota)) /* inNum -> não é um numero*/ {
-                        console.log(nome, 'ERRO: é necessario que todos os dados digitados sejam um numero');
-                    } else if (primeiraNota > 10 && segundaNota > 10 && terceiraNota > 10 && quartaNota > 10) {
-                        console.log('ERRO: digite numeros entre 0 e 10');
+                        console.log(nome, 'ERRO: é necessario que todos os dados digitados sejam um numero')
+
+
+                    } else if (primeiraNota < 0 || primeiraNota > 10 || segundaNota < 0 || segundaNota > 10 || terceiraNota < 0 || terceiraNota > 10 || quartaNota < 0 || quartaNota > 10) {
+                        console.log('ERRO: o sistema só aceita  números entre 0 e 10 ');
 
                     } else {
-                        media = (Number(primeiraNota) + Number(segundaNota) + Number(terceiraNota) + Number(quartaNota));
-                        console.log(media) / 4;
+                        media = (Number(primeiraNota) + Number(segundaNota) + Number(terceiraNota) + Number(quartaNota)) / 4
 
                         if (media >= 7) {
-                            console.log('APROVADO! PARABENS')
+                            console.log("Status do aluno: APROVADO")
+                            console.log('Parabens!!!!')
                         } else {
-                            console.log('reprovado')
+                            console.log("REPROVADO")
                         }
+                        // toFixed serve para definor quantas casas quero depois do numero decimal
+                        console.log('sua média é: ', media.toFixed(1));
+
+
+
                     }
                 });
             });
